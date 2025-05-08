@@ -3,7 +3,8 @@ import Chart from 'react-apexcharts';
 import CountUp from 'react-countup';
 
 const Dashboard = () => {
-  const chartOptions = {
+  // Bar Chart Options
+  const barChartOptions = {
     chart: {
       type: 'bar',
       height: 300,
@@ -41,18 +42,50 @@ const Dashboard = () => {
     },
   };
 
-  const chartSeries = [
+  const barChartSeries = [
     {
       name: 'Patients',
       data: [120, 150, 180, 90, 200, 130],
     },
   ];
 
+  // Donut Chart Options
+  const donutChartOptions = {
+    chart: {
+      type: 'donut',
+      height: 300,
+    },
+    labels: ['New Patients', 'Returning Patients', 'Emergency Cases'],
+    colors: ['#3b82f6', '#10b981', '#ef4444'],
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      position: 'bottom',
+      fontSize: '14px',
+      labels: {
+        colors: '#6B7280',
+      },
+    },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: '65%', // Makes it a donut chart
+        },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+    },
+  };
+
+  const donutChartSeries = [140, 80, 30]; // Example data for the donut chart
+
   const stats = [
-    { label: 'Appointments', icon: 'calendar-days', value: 250 ,contant:'40% vs last month' },
-    { label: 'New Patients', icon: 'user', value: 140, contant:'20% vs last month' },
-    { label: 'Operations', icon: 'scissors', value: 56, contant:'15% vs last month' },
-    { label: 'Earnings', icon: 'cash-register', value: 20250, prefix: '$', contant:'30% vs last month' },
+    { label: 'Appointments', icon: 'calendar-days', value: 250, contant: '40% vs last month' },
+    { label: 'New Patients', icon: 'user', value: 140, contant: '20% vs last month' },
+    { label: 'Operations', icon: 'scissors', value: 56, contant: '15% vs last month' },
+    { label: 'Earnings', icon: 'cash-register', value: 20250, prefix: '$', contant: '30% vs last month' },
   ];
 
   return (
@@ -71,7 +104,6 @@ const Dashboard = () => {
                   <i className={`fa-solid fa-${stat.icon}`}></i>
                 </div>
                 <h1 className="font-bold text-xl mb-2">{stat.label}</h1>
-
                 <div className="text-2xl font-semibold text-gray-700 ">
                   <CountUp
                     start={0}
@@ -89,13 +121,24 @@ const Dashboard = () => {
       </div>
 
       {/* Chart Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-2 gap-6 h-[300px]">
-        <div className="w-[800px] h-full bg-white p-4 rounded-2xl shadow">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 h-[300px]">
+        {/* Bar Chart */}
+        <div className="w-full  h-full bg-white p-4 rounded-2xl shadow">
           <h2 className="text-lg font-semibold text-gray-800 mb-4">Monthly Patient Stats</h2>
           <Chart
-            options={chartOptions}
-            series={chartSeries}
+            options={barChartOptions}
+            series={barChartSeries}
             type="bar"
+            height={250}
+          />
+        </div>
+        {/* Donut Chart */}
+        <div className="w-full h-full bg-white p-4 rounded-2xl shadow">
+          <h2 className="text-lg font-semibold text-gray-800 mb-4">Patient Distribution</h2>
+          <Chart
+            options={donutChartOptions}
+            series={donutChartSeries}
+            type="donut"
             height={250}
           />
         </div>

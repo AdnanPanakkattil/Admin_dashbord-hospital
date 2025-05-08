@@ -19,34 +19,34 @@ function App() {
     <div className="w-full h-screen">
       <Layout className="m-0 p-0 w-full h-full">
         <Sider trigger={null}  collapsible  collapsed={collapsed}  width={220} 
-          className="bg-blue-900" 
+          className="bg-blue-950" 
         >
           <div className="text-white py-4 text-center font-bold text-xl">
             {collapsed ? "" : "HealthCare"}
           </div>
-          <Menu theme="dark" mode="inline" className="bg-inherit">
+          <Menu theme="dark" mode="inline" className="bg-inherit" >
             <Menu.Item icon={<DashboardOutlined />} key="1">
-              <NavLink to="/" className={({ isActive }) => isActive ? "text-blue-500 font-semibold" : "text-white"}>
+              <NavLink to="/" className={({ isActive }) => isActive ? "font-semibold" : "text-white"}>
                 Dashboard
               </NavLink>
             </Menu.Item>
             <Menu.Item icon={<CalendarOutlined />} key="2">
-              <NavLink to="/Appoinment" className={({ isActive }) => isActive ? "text-blue-500 font-semibold" : "text-white"}>
+              <NavLink to="/Appoinment" className={({ isActive }) => isActive ? "  font-semibold" : "text-white"}>
                 Appointment
               </NavLink>
             </Menu.Item>
             <Menu.Item icon={<MedicineBoxOutlined />} key="3">
-              <NavLink to="/Doctors" className={({ isActive }) => isActive ? "text-blue-500 font-semibold" : "text-white"}>
+              <NavLink to="/Doctors" className={({ isActive }) => isActive ? "  font-semibold" : "text-white"}>
                 Doctors
               </NavLink>
             </Menu.Item>
             <Menu.Item icon={<AppstoreAddOutlined />} key="4">
-              <NavLink to="/Department" className={({ isActive }) => isActive ? "text-blue-500 font-semibold" : "text-white"}>
+              <NavLink to="/Department" className={({ isActive }) => isActive ? "  font-semibold" : "text-white"}>
                 Department
               </NavLink>
             </Menu.Item>
             <Menu.Item icon={<PhoneOutlined />} key="5">
-              <NavLink to="/Contact" className={({ isActive }) => isActive ? "text-blue-500 font-semibold" : "text-white"}>
+              <NavLink to="/Contact" className={({ isActive }) => isActive ? "  font-semibold" : "text-white"}>
                 Contact
               </NavLink>
             </Menu.Item>
